@@ -63,5 +63,18 @@
 - 合并PR（#309）新增lv6后开启白嫖模式的配置（多账号时可以实现不足lv6的继续投币，达到lv6的开始白嫖），感谢@cluom
 - 优化青龙安装dotnet的脚本，改为使用官方`dotnet-install.sh`脚本安装（之前测试网络不通，后发现--no-cdn可以）
 - 优化青龙的执行脚本，提取公共部分，并且在执行前会尝试安装一次dotnet，会清理一次缓存
-## 0.2.3
+## 0.3.0
 - hotfix docker build error
+- 合并PR（#341），新增krew部署，感谢@chenliu1993
+- 合并PR（##348），更新文档，感谢@jexjws
+- 合并PR（#350），修改请求header错误的bug，感谢@catlair
+- 合并PR（#353），新增python扫码登录的feature（仅针对青龙），感谢@AFUL1991
+- Feature（#351）：重构并新增了扫码登录功能，使之适用于各种部署平台
+## 0.3.1
+- Fix( #260 )，在需要的时候encode cookie
+- 更新文档
+## 0.3.2
+- Fix( #358 )，获取auth时兼容老版青龙文件路径
+- Fix( #364 )，兼容青龙异形response数据类型
+- Fix( #366 #361 )，修复一些低级bug
+- Feature( #359 )，兼容读取不到`$QL_DIR`的情况

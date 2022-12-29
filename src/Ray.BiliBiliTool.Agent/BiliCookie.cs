@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
+using System.Net.Http.Headers;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Logging.Abstractions;
 using Ray.BiliBiliTool.Config;
-using Ray.BiliBiliTool.Config.Options;
 using Ray.BiliBiliTool.Infrastructure;
 
 namespace Ray.BiliBiliTool.Agent
@@ -17,9 +13,18 @@ namespace Ray.BiliBiliTool.Agent
     {
         private readonly ILogger<BiliCookie> _logger;
 
-        public BiliCookie(ILogger<BiliCookie> logger,
-            CookieStrFactory cookieStrFactory)
-            : base(cookieStrFactory.GetCurrentCookieStr())
+        public BiliCookie(string ckStr)
+            : this(new List<string> { ckStr }) { }
+
+        public BiliCookie(List<string> ckStrList)
+            : this(NullLogger<BiliCookie>.Instance, new CookieStrFactory(ckStrList)) { }
+
+        public BiliCookie(ILogger<BiliCookie> logger, CookieStrFactory cookieStrFactory)
+            : this(logger, cookieStrFactory.GetCurrentCookieStr()) { }
+
+        private BiliCookie(ILogger<BiliCookie> logger, string ckStr)
+            : base(ckStr, null, v => v.Contains(',') ? Uri.EscapeDataString(v) : v)
+        //: base(ckStr, null, v => v)
         {
             _logger = logger;
 
@@ -35,8 +40,6 @@ namespace Ray.BiliBiliTool.Agent
             {
                 SessData = sess;
             }
-
-            this.Check();
         }
 
         [Description("DedeUserID")]
