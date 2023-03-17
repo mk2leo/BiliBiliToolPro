@@ -78,3 +78,38 @@
 - Fix( #364 )，兼容青龙异形response数据类型
 - Fix( #366 #361 )，修复一些低级bug
 - Feature( #359 )，兼容读取不到`$QL_DIR`的情况
+## 0.4.0
+- 合并PR（ #381 #383 ），新增直播间挂机功能，感谢@bakapiano
+## 0.4.1
+- Merge PR #418 : Fix search video api's error, thx @catlair
+## 0.4.2
+- Merfe PRs #425 #426 #427 : Enhancement docker things, thx @zclkkk
+## 0.4.3
+- Feature #419 : Add a auto shell script for installing with docker
+- Feature #396 : Publish docker image to GitHub pkg
+## 0.4.4
+- Fix #228 : Try to fix sharing video error
+- Feature: Change default docker image from dockerhub to github
+## 0.4.5
+- Fix #423 : Change int to string to avoid overflow exception
+## 0.4.6
+- Fix: ck list init empty error
+- Feature #440 : use 'apk add' to install dotnet in qinglong
+## 1.0.0
+- Feature: Enable asynchronous
+- Fix #344 : Support `Ctrl + C` to trigger exit event
+- Fix #451 : Rebuild cookie factory pattern and fix bug of donating coin
+- Featur: Replace AOP from MethodBoundaryAspect.Fody to Rougamo.Fody, to fix async exception
+- Merge PR #448 : Fix typo
+- Fix #446 : Change id type from int to long
+## 1.0.1
+- Fix #463 : do not trust user's ck config
+- Feature #460 : publish single file when release
+- Feature: use new scripts for gh actions's release
+- Feature #473 : let user input when there is no target task in configs
+## 1.0.2
+- Fix #484 : fix read dic config error
+- Merge PR #472 : add reverse proxy host for telegram notification
+- Merge PR #483 : update login field for entrypoint
+## 1.0.3
+- Fix #486 : fix release zip error
